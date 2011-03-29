@@ -115,16 +115,27 @@ public class Item extends AWSQueryConnection {
 			throw new SDBException(ex.getMessage(), ex);
 		}
 	}
-
+    /**
+     * Gets selected attributes. The parameter limits the results to those of
+     * the name(s) given.
+     *
+     * @param attributes name(s) that limits the results
+     * @return the list of attributes
+     * @throws SDBException wraps checked exceptions
+     */
+    public List<ItemAttribute> getAttributes(List<String> attributes) throws SDBException {
+        return getAttributes(attributes, false);
+    }
 	/**
 	 * Gets selected attributes. The parameter limits the results to those of
 	 * the name(s) given.
 	 *
 	 * @param attributes name(s) that limits the results
+     * @param consistent if true, consistency is assured
      * @return the list of attributes
 	 * @throws SDBException wraps checked exceptions
 	 */
-	public List<ItemAttribute> getAttributes(List<String> attributes) throws SDBException {
+	public List<ItemAttribute> getAttributes(List<String> attributes, boolean consistent) throws SDBException {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("DomainName", domainName);
 		params.put("ItemName", identifier);
@@ -136,6 +147,9 @@ public class Item extends AWSQueryConnection {
 			}
 		}
 		HttpGet method = new HttpGet();
+        if (consistent) {
+			params.put("ConsistentRead", "true");
+		}
 		try {
 			GetAttributesResponse response =
 						makeRequestInt(method, "GetAttributes", params, GetAttributesResponse.class);
