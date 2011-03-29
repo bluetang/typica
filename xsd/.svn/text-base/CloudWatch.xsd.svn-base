@@ -1,0 +1,193 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 	   xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	 	   xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+		   xmlns:tns="http://monitoring.amazonaws.com/doc/2009-05-15/"
+		   targetNamespace="http://monitoring.amazonaws.com/doc/2009-05-15/"
+		   jaxb:extensionBindingPrefixes="xjc"
+		   jaxb:version="2.0"
+		   elementFormDefault="qualified">
+
+  <xs:annotation>
+	<xs:documentation xml:lang="en">
+	</xs:documentation>
+    <xs:appinfo>
+      <jaxb:globalBindings>
+        <xjc:simple/>
+      </jaxb:globalBindings>
+    </xs:appinfo>
+  </xs:annotation>
+
+  <xs:element name="ResponseMetadata">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="RequestId" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="Error">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="Type">
+		  <xs:simpleType>
+			<xs:restriction base="xs:string">
+			  <xs:enumeration value="Receiver"/>
+			  <xs:enumeration value="Sender"/>
+			</xs:restriction>
+		  </xs:simpleType>
+		</xs:element>
+		<xs:element name="Code" type="xs:string"/>
+		<xs:element name="Message" type="xs:string"/>
+		<xs:element name="Detail">
+		  <xs:complexType>
+			<xs:sequence>
+			  <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+			</xs:sequence>
+			<xs:anyAttribute namespace="##other" processContents="lax"/>
+		  </xs:complexType>
+		</xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ErrorResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:Error" maxOccurs="unbounded"/>
+		<xs:element name="RequestId" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="ListMetrics">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="NextToken" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListMetricsResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ListMetricsResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListMetricsResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="Metrics" type="tns:Metrics" minOccurs="0"/>
+	  <xs:element name="NextToken" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+  <xs:element name="GetMetricStatistics">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="Statistics" type="tns:Statistics"/>
+	  <xs:element name="Period" type="xs:integer"/>
+	  <xs:element name="MeasureName" type="xs:string"/>
+	  <xs:element name="Dimensions" type="tns:Dimensions" minOccurs="0"/>
+	  <xs:element name="StartTime" type="xs:dateTime"/>
+	  <xs:element name="EndTime" type="xs:dateTime"/>
+	  <xs:element name="Unit" type="tns:StandardUnit" minOccurs="0"/>
+	  <xs:element name="CustomUnit" type="xs:string" minOccurs="0"/>
+	  <xs:element name="Namespace" type="tns:Namespace" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetMetricStatisticsResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ResponseMetadata"/>
+		<xs:element ref="tns:GetMetricStatisticsResult"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetMetricStatisticsResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="Datapoints" type="tns:Datapoints" minOccurs="0"/>
+	  <xs:element name="Label" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="StandardUnit">
+	<xs:restriction base="xs:string">
+	  <xs:pattern value="(Seconds|Bytes|Bits|Percent|Count|Bytes/Second|Bits/Second|Count/Second|None)"/>
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Datapoint">
+	<xs:sequence>
+	  <xs:element name="Timestamp" type="xs:dateTime"/>
+	  <xs:element name="Samples" type="xs:double"/>
+	  <xs:element name="Average" type="xs:double" minOccurs="0"/>
+	  <xs:element name="Sum" type="xs:double" minOccurs="0"/>
+	  <xs:element name="Minimum" type="xs:double" minOccurs="0"/>
+	  <xs:element name="Maximum" type="xs:double" minOccurs="0"/>
+	  <xs:element name="Unit" type="tns:StandardUnit" minOccurs="0"/>
+	  <xs:element name="CustomUnit" type="xs:string" minOccurs="0"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Dimensions">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:Dimension" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Metrics">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:Metric" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Datapoints">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:Datapoint" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="Namespace">
+	<xs:restriction base="xs:string">
+	  <xs:pattern value="[^:].*"/>
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Dimension">
+	<xs:sequence>
+	  <xs:element name="Name" type="xs:string"/>
+	  <xs:element name="Value" type="xs:string"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Metric">
+	<xs:sequence>
+	  <xs:element name="MeasureName" type="xs:string"/>
+	  <xs:element name="Dimensions" type="tns:Dimensions" minOccurs="0"/>
+	  <xs:element name="Namespace" type="tns:Namespace" minOccurs="0"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="Statistic">
+	<xs:restriction base="xs:string">
+	  <xs:pattern value="(Average|Sum|Minimum|Maximum)"/>
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Statistics">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:Statistic" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

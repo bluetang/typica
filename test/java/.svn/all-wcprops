@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/346/trunk/test/java
+END
+TestSimpleDB.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/346/trunk/test/java/TestSimpleDB.java
+END
+DequeueSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/136/trunk/test/java/DequeueSample.java
+END
+TestFastReceive.java
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/124/trunk/test/java/TestFastReceive.java
+END
+sdbShell.java
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/309/trunk/test/java/sdbShell.java
+END
+TestSNS.java
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/321/trunk/test/java/TestSNS.java
+END
+QueryTool.java
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/322/trunk/test/java/QueryTool.java
+END
+TestQueueService.java
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/245/trunk/test/java/TestQueueService.java
+END
+DeleteQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/244/trunk/test/java/DeleteQueue.java
+END
+ShowQueueLoadHistory.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/322/trunk/test/java/ShowQueueLoadHistory.java
+END
+TestBundle.java
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/239/trunk/test/java/TestBundle.java
+END
+EnqueueSample.java
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/136/trunk/test/java/EnqueueSample.java
+END
+TestEBS.java
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/305/trunk/test/java/TestEBS.java
+END
+Ec2Sample.java
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/123/trunk/test/java/Ec2Sample.java
+END
+TestReserved.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/237/trunk/test/java/TestReserved.java
+END
+TestCounter.java
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/310/trunk/test/java/TestCounter.java
+END
+TestJec2.java
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/209/trunk/test/java/TestJec2.java
+END
+TestMonitoring.java
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/265/trunk/test/java/TestMonitoring.java
+END
+TestVisibility.java
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/244/trunk/test/java/TestVisibility.java
+END
+AttachVolume.java
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/171/trunk/test/java/AttachVolume.java
+END

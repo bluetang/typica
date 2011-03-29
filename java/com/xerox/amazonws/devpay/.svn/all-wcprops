@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/326/trunk/java/com/xerox/amazonws/devpay
+END
+HostedProductInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/126/trunk/java/com/xerox/amazonws/devpay/HostedProductInfo.java
+END
+DesktopProductInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/126/trunk/java/com/xerox/amazonws/devpay/DesktopProductInfo.java
+END
+DevPayLS.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/326/trunk/java/com/xerox/amazonws/devpay/DevPayLS.java
+END
+DevPayException.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/172/trunk/java/com/xerox/amazonws/devpay/DevPayException.java
+END

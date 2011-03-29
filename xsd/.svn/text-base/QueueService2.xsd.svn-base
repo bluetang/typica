@@ -1,0 +1,416 @@
+<xs:schema targetNamespace="http://queue.amazonaws.com/doc/2009-02-01/"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			xmlns:tns="http://queue.amazonaws.com/doc/2009-02-01/"
+			xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+			xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+			jaxb:extensionBindingPrefixes="xjc"
+			jaxb:version="2.0"
+			elementFormDefault="qualified">
+      
+  <xs:annotation>
+	<xs:documentation xml:lang="en">
+	</xs:documentation>
+	<xs:appinfo>
+      <jaxb:globalBindings>
+      	<xjc:simple/>
+      </jaxb:globalBindings>
+	</xs:appinfo>
+  </xs:annotation>
+      
+  <!-- **************************** QueueService Interface *************************** -->
+  
+  <!-- CreateQueue Action -->
+  <xs:element name="CreateQueue">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+The CreateQueue action creates a new queue, or returns the URL of an existing one.  When you request CreateQueue, you provide a name for the queue. To successfully create a new queue, you must provide a name that is unique within the scope of your own queues. If you provide the name of an existing queue, a new queue isn't created and an error isn't returned. Instead, the request succeeds and the queue URL for the existing queue is returned. Exception: if you provide a value for DefaultVisibilityTimeout that is different from the value for the existing queue, you receive an error.  
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="QueueName" type="xs:string"/>
+        <xs:element name="DefaultVisibilityTimeout" type="xs:integer" minOccurs="0"/>
+        <xs:element ref="tns:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- CreateQueue Action Response -->
+  <xs:element name="CreateQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:CreateQueueResult"/>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ListQueues Action -->
+  <xs:element name="ListQueues">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+The ListQueues action returns a list of your queues.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="QueueNamePrefix" type="xs:string" minOccurs="0"/>
+        <xs:element ref="tns:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                    
+  <!-- ListQueues Action Response -->
+  <xs:element name="ListQueuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ListQueuesResult"/>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- **************************** MessageQueue Interface *************************** -->
+                  
+  <!-- ChangeMessageVisibility Action -->
+  <xs:element name="ChangeMessageVisibility">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+The ChangeMessageVisibility action extends the read lock timeout of the specified message from the specified queue to the specified value.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReceiptHandle" type="xs:string"/>
+        <xs:element name="VisibilityTimeout" type="xs:integer"/>
+        <xs:element ref="tns:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ChangeMessageVisibility Action Response -->
+  <xs:element name="ChangeMessageVisibilityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- DeleteMessage Action -->
+  <xs:element name="DeleteMessage">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+The DeleteMessage action unconditionally removes the specified message from the specified queue. Even if the message is locked by another reader due to the visibility timeout setting, it is still deleted from the queue.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="ReceiptHandle" type="xs:string"/>
+        <xs:element ref="tns:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- DeleteMessage Action Response -->
+  <xs:element name="DeleteMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>  
+
+  <!-- DeleteQueue Action -->
+  <xs:element name="DeleteQueue">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+This action unconditionally deletes the queue specified by the queue URL. Use this operation WITH CARE!  The queue is deleted even if it is NOT empty.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>      
+  </xs:element>
+                    
+  <!-- DeleteQueue Action Response -->
+  <xs:element name="DeleteQueueResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- GetQueueAttributes Action -->
+  <xs:element name="GetQueueAttributes">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+Gets one or all attributes of a queue. Current attributes you can get: [ApproximateNumberOfMessages, CreatedTimestamp, LastModifiedTimestamp, VisibilityTimeout, RequestPayer, and Policy].
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AttributeName" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+        <!-- Ignore the Unused element.  It prevents WSE from collapsing AttributeName element(s) to an array of strings. --> 
+        <xs:element name="Unused" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                    
+  <!-- GetQueueAttributes Action Response -->
+  <xs:element name="GetQueueAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:GetQueueAttributesResult"/>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                    
+  <!-- ReceiveMessage Action -->
+  <xs:element name="ReceiveMessage">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+Retrieves one or more messages from the specified queue, including the message body and message ID of each message. Messages returned by this action stay in the queue until you delete them. However, once a message is returned to a ReceiveMessage request, it is not returned on subsequent ReceiveMessage requests for the duration of the VisibilityTimeout. If you do not specify a VisibilityTimeout in the request, the overall visibility timeout for the queue is used for the returned messages.  Possible attributes that can be requested with messages include [SenderPrincipalId, and SentTimestamp]
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MaxNumberOfMessages" type="xs:integer" minOccurs="0"/>
+        <xs:element name="VisibilityTimeout" type="xs:integer" minOccurs="0"/>
+        <xs:element name="AttributeName" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+        <!-- Ignore the Unused element.  It prevents WSE from collapsing AttributeName element(s) to an array of strings. --> 
+        <xs:element name="Unused" type="xs:string" minOccurs="0" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                    
+  <!-- ReceiveMessage Action Response -->
+  <xs:element name="ReceiveMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ReceiveMessageResult"/>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>                
+
+  <!-- SendMessage Action -->
+  <xs:element name="SendMessage">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+The SendMessage action delivers a message to the specified queue.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageBody" type="xs:string"/>
+        <xs:element ref="tns:Attribute" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                    
+  <!-- SendMessage Action Response -->
+  <xs:element name="SendMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:SendMessageResult"/>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- SetQueueAttributes Action -->
+  <xs:element name="SetQueueAttributes">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+Sets an attribute of a queue. Currently, you can set only one attribute per request. Valid attributes for setting are [VisibilityTimeout, RequestPayer, and Policy] 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:Attribute" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                    
+  <!-- SetQueueAttributes Action Response -->
+  <xs:element name="SetQueueAttributesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- **************************** MessageQueue Permissions Interface *************************** -->
+
+  <!-- AddPermission Action -->
+  <xs:element name="AddPermission">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+Adds the specified permission(s) to a queue for the specified principal(s). This allows for sharing access to the queue. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Label" type="xs:string"/>
+        <xs:element name="AWSAccountId" type="xs:string" maxOccurs="unbounded"/>
+        <xs:element name="ActionName" type="xs:string" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                    
+  <!-- AddPermission Action Response -->
+  <xs:element name="AddPermissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+    
+  <!-- RemovePermission Action -->
+  <xs:element name="RemovePermission">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+Removes the permission with the specified statement id from the queue. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Label" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                    
+  <!-- RemovePermission Action Response -->
+  <xs:element name="RemovePermissionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:ResponseMetadata"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <!-- ******************************* QueueService Types ************************* -->
+                
+  <!-- CreateQueue Result Data -->
+  <xs:element name="CreateQueueResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="QueueUrl" type="xs:anyURI"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ListQueues Result Data -->
+  <xs:element name="ListQueuesResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="QueueUrl" type="xs:anyURI" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+   
+  <!-- ******************************* MessageQueue Types ************************* -->
+  
+  <!-- Attribute Data -->
+  <xs:element name="Attribute">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Name" type="xs:string"/>
+        <xs:element name="Value" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- GetQueueAttributes Result Data -->
+  <xs:element name="GetQueueAttributesResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:Attribute" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ReceiveMessage Data -->
+  <xs:element name="Message">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageId" type="xs:string"/>
+        <xs:element name="ReceiptHandle" type="xs:string"/>
+        <xs:element name="MD5OfBody" type="xs:string"/>
+        <xs:element name="Body" type="xs:string"/>
+        <xs:element ref="tns:Attribute" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ReceiveMessage Result Data -->
+  <xs:element name="ReceiveMessageResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:Message" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                
+  <!-- SendMessage Result Data -->
+  <xs:element name="SendMessageResult">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MessageId" type="xs:string"/>
+        <xs:element name="MD5OfMessageBody" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- ******************************** AWS Types *********************************** -->
+                
+  <xs:element name="ResponseMetadata">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="RequestId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+                
+  <!-- // Query and REST Error Response // -->
+  <xs:element name="ErrorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="tns:Error" maxOccurs="unbounded"/>
+        <xs:element name="RequestId" type="xs:string"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Error">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Type">
+          <xs:simpleType>
+            <xs:restriction base="xs:string">
+              <xs:enumeration value="Receiver"/>
+              <xs:enumeration value="Sender"/>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name="Code" type="xs:string"/>
+        <xs:element name="Message" type="xs:string"/>
+        <xs:element name="Detail">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:anyAttribute namespace="##other" processContents="lax"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+

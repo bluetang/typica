@@ -1,0 +1,276 @@
+ypica 1.7.1
+12-July-2010
+
+http://code.google.com/p/typica
+
+This is a simple API to access Amazon's SQS, EC2, SimpleDB, SNS, FPS and DevPay web services. It uses the QUERY interface. This code is thread-safe and works very reliably to the best of my knowledge. I've been using it on a system where sending messages in SQS is critical and we manage pools of servers in EC2.
+
+Distribution files;
+README      - this file
+LICENSE.txt - full version of the Apache 2.0 license
+Log4J.xml   - a Log4J config file you can include in your classpath
+typica.jar  - the classes for this release
+apidocs     - JavaDoc for this release
+
+Test files
+In subversion, the test directory contains some java test files. Sample code is also documented on the wiki @ http://code.google.com/p/typica/wiki/TypicaSampleCode. These can be used as sample files and to test various features of the client code. There is a target "test.main". To invoke the sample code, you can use this target like this;
+ant test.main -Dclass=TestQueueService -Dargs=testQueue
+
+Change history for this release;
+------------------------------------------------------------------------
+r343 | dkavanagh | 2010-07-14 13:15:41 -0400 (Wed, 14 Jul 2010) | 2 lines
+
+changes for latest EC2 API including cluster compute support
+------------------------------------------------------------------------
+
+Change history for the 1.7.1 release;
+------------------------------------------------------------------------
+r340 | dkavanagh | 2010-07-09 16:10:55 -0400 (Fri, 09 Jul 2010) | 2 lines
+
+better debug exception trapping for bad server responses
+------------------------------------------------------------------------
+r339 | dkavanagh | 2010-07-09 16:02:40 -0400 (Fri, 09 Jul 2010) | 2 lines
+
+support for new SQS attrs, and larger message size
+------------------------------------------------------------------------
+r338 | dkavanagh | 2010-07-09 15:55:34 -0400 (Fri, 09 Jul 2010) | 2 lines
+
+changes to support VPC
+------------------------------------------------------------------------
+r337 | dkavanagh | 2010-07-09 15:55:14 -0400 (Fri, 09 Jul 2010) | 2 lines
+
+allow device to be empty string on detachVolume call
+------------------------------------------------------------------------
+r336 | dkavanagh | 2010-07-08 18:44:11 -0400 (Thu, 08 Jul 2010) | 3 lines
+
+fixed volume create without snapshot id issue. Allows empty string as well as null now for snapid. fixes issue #92
+------------------------------------------------------------------------
+r335 | dkavanagh | 2010-07-08 17:02:57 -0400 (Thu, 08 Jul 2010) | 3 lines
+
+allow port num to be preserved in created objects. fixes issue #43
+------------------------------------------------------------------------
+r334 | dkavanagh | 2010-07-08 16:52:03 -0400 (Thu, 08 Jul 2010) | 4 lines
+
+no longer force signature version 1, defaults to version 2
+fixes issue #86
+------------------------------------------------------------------------
+r333 | dkavanagh | 2010-07-08 16:33:26 -0400 (Thu, 08 Jul 2010) | 2 lines
+
+properly parse enabled state for monitoring
+------------------------------------------------------------------------
+r332 | dkavanagh | 2010-07-08 11:45:37 -0400 (Thu, 08 Jul 2010) | 2 lines
+
+fixed describe instance for eucaluptys. XML returned doesn't strictly follow EC2s responses. fixes issue #95
+------------------------------------------------------------------------
+r331 | dkavanagh | 2010-06-04 10:36:52 -0400 (Fri, 04 Jun 2010) | 2 lines
+
+fix for issue #94 and #90
+------------------------------------------------------------------------
+r330 | dkavanagh | 2010-06-03 20:30:11 -0400 (Thu, 03 Jun 2010) | 2 lines
+
+removed @Override on method that breaks in Java 5
+------------------------------------------------------------------------
+
+Change history for the 1.7 release;
+------------------------------------------------------------------------
+r327 | dkavanagh | 2010-05-06 07:36:48 -0400 (Thu, 06 May 2010) | 2 lines
+
+added ap region
+------------------------------------------------------------------------
+r326 | dkavanagh | 2010-05-05 21:11:34 -0400 (Wed, 05 May 2010) | 2 lines
+
+changes to catch clauses for every service
+------------------------------------------------------------------------
+r325 | dkavanagh | 2010-05-05 14:14:03 -0400 (Wed, 05 May 2010) | 2 lines
+
+performance improvements
+------------------------------------------------------------------------
+r323 | dkavanagh | 2010-04-15 14:51:06 -0400 (Thu, 15 Apr 2010) | 2 lines
+
+added createItem to Domain, and toString to DomainMetadata
+------------------------------------------------------------------------
+r322 | dkavanagh | 2010-04-13 10:39:30 -0400 (Tue, 13 Apr 2010) | 2 lines
+
+added re-think of simpledb API, moved Query tool to trunk
+------------------------------------------------------------------------
+r321 | dkavanagh | 2010-04-12 09:41:16 -0400 (Mon, 12 Apr 2010) | 2 lines
+
+more SNS test code
+------------------------------------------------------------------------
+r320 | dkavanagh | 2010-04-12 08:56:46 -0400 (Mon, 12 Apr 2010) | 2 lines
+
+added javadoc, test code for SNS. Also use delegate model for connection vs. inheritance
+------------------------------------------------------------------------
+r319 | dkavanagh | 2010-04-10 09:39:58 -0400 (Sat, 10 Apr 2010) | 2 lines
+
+initial SNS support and fix in progress for version 2 signing
+------------------------------------------------------------------------
+r318 | dkavanagh | 2010-03-25 13:53:30 -0400 (Thu, 25 Mar 2010) | 3 lines
+
+Conversion to HttpClient 4. Touches/simplifies a lot of code.
+Removed deprecated sqs package. sqs2 is only option now.
+------------------------------------------------------------------------
+r317 | dkavanagh | 2010-03-24 08:48:36 -0400 (Wed, 24 Mar 2010) | 2 lines
+
+allow queries to use POST method. Coverted sdb-batchPut, sqs-send, and some ec2 methods to use it. fixes issue #72
+------------------------------------------------------------------------
+r316 | dkavanagh | 2010-03-23 17:31:45 -0400 (Tue, 23 Mar 2010) | 2 lines
+
+addressed shared Mac issue #84
+------------------------------------------------------------------------
+r315 | dkavanagh | 2010-03-23 11:41:51 -0400 (Tue, 23 Mar 2010) | 2 lines
+
+fix for monitor/unmonitor calls, issue #81, plus added some javadoc
+------------------------------------------------------------------------
+r314 | dkavanagh | 2010-03-23 09:03:30 -0400 (Tue, 23 Mar 2010) | 2 lines
+
+support for spot datafeed subscriptions
+------------------------------------------------------------------------
+r313 | dkavanagh | 2010-03-22 10:40:01 -0400 (Mon, 22 Mar 2010) | 2 lines
+
+fixed instance BDM info, implemented EBS related image changes
+------------------------------------------------------------------------
+r312 | dkavanagh | 2010-03-21 18:06:07 -0400 (Sun, 21 Mar 2010) | 2 lines
+
+updates for block device mapping changes
+------------------------------------------------------------------------
+r311 | dkavanagh | 2010-03-09 10:13:58 -0500 (Tue, 09 Mar 2010) | 2 lines
+
+converted counter to use long
+------------------------------------------------------------------------
+r310 | dkavanagh | 2010-03-09 09:51:19 -0500 (Tue, 09 Mar 2010) | 2 lines
+
+added thread-safe, persistent counter. test code
+------------------------------------------------------------------------
+r309 | dkavanagh | 2010-03-01 23:11:15 -0500 (Mon, 01 Mar 2010) | 2 lines
+
+cleaned up test code, un-used classes
+------------------------------------------------------------------------
+r308 | dkavanagh | 2010-03-01 22:44:27 -0500 (Mon, 01 Mar 2010) | 2 lines
+
+updates for consistency features. removed deprecated query support.
+------------------------------------------------------------------------
+r307 | dkavanagh | 2010-02-23 07:22:14 -0500 (Tue, 23 Feb 2010) | 2 lines
+
+support for new xlarge, highmem
+------------------------------------------------------------------------
+r306 | plightbo | 2010-02-22 19:30:34 -0500 (Mon, 22 Feb 2010) | 1 line
+
+Spot instances now can be launched, cancelled, and queried. Still lots of polish to do though.
+------------------------------------------------------------------------
+r305 | plightbo | 2010-02-22 19:29:41 -0500 (Mon, 22 Feb 2010) | 1 line
+
+make it compile!
+------------------------------------------------------------------------
+r304 | plightbo | 2010-02-22 19:29:23 -0500 (Mon, 22 Feb 2010) | 1 line
+
+IntelliJ IDEA project code style
+------------------------------------------------------------------------
+r303 | plightbo | 2010-02-22 19:29:06 -0500 (Mon, 22 Feb 2010) | 1 line
+
+if the params provided are null, don't barf
+------------------------------------------------------------------------
+r302 | dkavanagh | 2010-02-03 10:37:43 -0500 (Wed, 03 Feb 2010) | 2 lines
+
+added createImage, new registerImage in support of EBS images
+------------------------------------------------------------------------
+r301 | plightbo | 2010-02-02 10:45:45 -0500 (Tue, 02 Feb 2010) | 1 line
+
+IntelliJ IDEA project files, and also ignoring the build
+------------------------------------------------------------------------
+r300 | plightbo | 2010-02-02 10:39:56 -0500 (Tue, 02 Feb 2010) | 1 line
+
+Initial Spot Pricing support: first method supported is simple ability to query the price history.
+------------------------------------------------------------------------
+r299 | dkavanagh | 2010-02-02 09:06:19 -0500 (Tue, 02 Feb 2010) | 2 lines
+
+Required POJO.
+------------------------------------------------------------------------
+r298 | dkavanagh | 2010-02-01 22:39:09 -0500 (Mon, 01 Feb 2010) | 2 lines
+
+added start/stop instances calls
+------------------------------------------------------------------------
+r297 | dkavanagh | 2010-02-01 22:13:43 -0500 (Mon, 01 Feb 2010) | 2 lines
+
+updated schema to latest, NOTE: Breaking API change to terminateInstances() return type which matches EC2 breaking change.
+------------------------------------------------------------------------
+r296 | dkavanagh | 2010-01-08 18:52:00 -0500 (Fri, 08 Jan 2010) | 2 lines
+
+a mid-way checkin of updates for newer WSDL
+------------------------------------------------------------------------
+r295 | dkavanagh | 2009-12-04 12:17:14 -0500 (Fri, 04 Dec 2009) | 2 lines
+
+added us west region
+------------------------------------------------------------------------
+r294 | dkavanagh | 2009-10-16 13:45:18 -0400 (Fri, 16 Oct 2009) | 2 lines
+
+some of the EC2 updates (like IP address info), and fix for public addressing bug #65
+------------------------------------------------------------------------
+r293 | dkavanagh | 2009-10-16 12:28:10 -0400 (Fri, 16 Oct 2009) | 2 lines
+
+added missing '.' in param name
+------------------------------------------------------------------------
+r292 | dkavanagh | 2009-10-14 13:28:53 -0400 (Wed, 14 Oct 2009) | 2 lines
+
+fixed other InstanceId params (Thanks Gabe)
+------------------------------------------------------------------------
+r291 | dkavanagh | 2009-10-13 19:26:34 -0400 (Tue, 13 Oct 2009) | 2 lines
+
+added support for reserved instance start date, issue #64
+------------------------------------------------------------------------
+r290 | dkavanagh | 2009-10-13 08:33:00 -0400 (Tue, 13 Oct 2009) | 2 lines
+
+fixed param in DeregisterInstancesFromLoadBalancer call
+------------------------------------------------------------------------
+r289 | dkavanagh | 2009-10-12 22:21:10 -0400 (Mon, 12 Oct 2009) | 2 lines
+
+fix for error responses on ELB and AS services
+------------------------------------------------------------------------
+r288 | dkavanagh | 2009-10-12 21:53:54 -0400 (Mon, 12 Oct 2009) | 2 lines
+
+updated with proper service endpoints
+------------------------------------------------------------------------
+r287 | dkavanagh | 2009-10-12 21:26:02 -0400 (Mon, 12 Oct 2009) | 2 lines
+
+allow setting of AddressingType again. Eucalyptus makes use of this. Still defaults to public addressing bc EC2 only uses this mode. issue #60
+------------------------------------------------------------------------
+r286 | dkavanagh | 2009-10-12 20:43:47 -0400 (Mon, 12 Oct 2009) | 2 lines
+
+patch to allow setting of server timezone (helpful when talking with private eucalyptus clouds) issues #59
+------------------------------------------------------------------------
+r285 | dkavanagh | 2009-10-12 20:23:26 -0400 (Mon, 12 Oct 2009) | 2 lines
+
+fixed issue #56, attribute map contain list of names, instead of values
+------------------------------------------------------------------------
+r284 | dkavanagh | 2009-10-12 20:10:09 -0400 (Mon, 12 Oct 2009) | 2 lines
+
+support for new queue attributes
+------------------------------------------------------------------------
+r283 | dkavanagh | 2009-10-07 15:22:27 -0400 (Wed, 07 Oct 2009) | 2 lines
+
+fix for encoding issue #49
+------------------------------------------------------------------------
+r282 | dkavanagh | 2009-10-07 15:11:33 -0400 (Wed, 07 Oct 2009) | 2 lines
+
+fix for ELB endpoint error Issue #62
+------------------------------------------------------------------------
+r281 | dkavanagh | 2009-10-07 09:13:04 -0400 (Wed, 07 Oct 2009) | 2 lines
+
+added source-jar target (issue #33)
+------------------------------------------------------------------------
+r280 | dkavanagh | 2009-08-16 10:10:16 -0400 (Sun, 16 Aug 2009) | 2 lines
+
+fixed issue #55, where version file input stream was kept open
+------------------------------------------------------------------------
+r279 | dkavanagh | 2009-08-16 10:06:46 -0400 (Sun, 16 Aug 2009) | 2 lines
+
+describeImages() doees not support ImageType param issue #54
+------------------------------------------------------------------------
+r278 | dkavanagh | 2009-08-16 09:50:13 -0400 (Sun, 16 Aug 2009) | 2 lines
+
+culled some older releases
+------------------------------------------------------------------------
+r276 | dkavanagh | 2009-08-16 09:35:39 -0400 (Sun, 16 Aug 2009) | 2 lines
+
+allows using SimpleDB over different ports
+------------------------------------------------------------------------

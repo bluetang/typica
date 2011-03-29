@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/326/trunk/java/com/xerox/amazonws/sns
+END
+SubscriptionInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/319/trunk/java/com/xerox/amazonws/sns/SubscriptionInfo.java
+END
+SNSException.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/319/trunk/java/com/xerox/amazonws/sns/SNSException.java
+END
+NotificationService.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/326/trunk/java/com/xerox/amazonws/sns/NotificationService.java
+END

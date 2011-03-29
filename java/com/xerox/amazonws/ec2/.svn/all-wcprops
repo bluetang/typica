@@ -1,0 +1,335 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/343/trunk/java/com/xerox/amazonws/ec2
+END
+GroupDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/113/trunk/java/com/xerox/amazonws/ec2/GroupDescription.java
+END
+HealthCheck.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/HealthCheck.java
+END
+AttachmentInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/168/trunk/java/com/xerox/amazonws/ec2/AttachmentInfo.java
+END
+ScalingTrigger.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/ScalingTrigger.java
+END
+ReservationDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/343/trunk/java/com/xerox/amazonws/ec2/ReservationDescription.java
+END
+DescribeImageAttributeResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/128/trunk/java/com/xerox/amazonws/ec2/DescribeImageAttributeResult.java
+END
+InstanceType.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/343/trunk/java/com/xerox/amazonws/ec2/InstanceType.java
+END
+SpotDatafeedSubscription.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/314/trunk/java/com/xerox/amazonws/ec2/SpotDatafeedSubscription.java
+END
+SpotPriceHistoryItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/330/trunk/java/com/xerox/amazonws/ec2/SpotPriceHistoryItem.java
+END
+AutoScaling.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/326/trunk/java/com/xerox/amazonws/ec2/AutoScaling.java
+END
+TerminatingInstanceDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/113/trunk/java/com/xerox/amazonws/ec2/TerminatingInstanceDescription.java
+END
+SnapshotInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/312/trunk/java/com/xerox/amazonws/ec2/SnapshotInfo.java
+END
+SpotInstanceState.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/306/trunk/java/com/xerox/amazonws/ec2/SpotInstanceState.java
+END
+InstanceBlockDeviceMapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/313/trunk/java/com/xerox/amazonws/ec2/InstanceBlockDeviceMapping.java
+END
+SpotInstanceRequestConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/306/trunk/java/com/xerox/amazonws/ec2/SpotInstanceRequestConfiguration.java
+END
+InstanceStateChangeDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/297/trunk/java/com/xerox/amazonws/ec2/InstanceStateChangeDescription.java
+END
+KeyPairInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/113/trunk/java/com/xerox/amazonws/ec2/KeyPairInfo.java
+END
+ImageListAttributeItem.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/47/trunk/java/com/xerox/amazonws/ec2/ImageListAttributeItem.java
+END
+ProductCodesAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/73/trunk/java/com/xerox/amazonws/ec2/ProductCodesAttribute.java
+END
+VolumeInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/168/trunk/java/com/xerox/amazonws/ec2/VolumeInfo.java
+END
+SpotInstanceRequest.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/306/trunk/java/com/xerox/amazonws/ec2/SpotInstanceRequest.java
+END
+DescribeSnapshotAttributeResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/312/trunk/java/com/xerox/amazonws/ec2/DescribeSnapshotAttributeResult.java
+END
+ProductDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/237/trunk/java/com/xerox/amazonws/ec2/ProductDescription.java
+END
+AutoScalingGroup.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/AutoScalingGroup.java
+END
+ReservedInstances.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/291/trunk/java/com/xerox/amazonws/ec2/ReservedInstances.java
+END
+AutoScalingException.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/AutoScalingException.java
+END
+EC2Utils.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/164/trunk/java/com/xerox/amazonws/ec2/EC2Utils.java
+END
+Activity.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/Activity.java
+END
+LoadBalancingException.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/LoadBalancingException.java
+END
+RegionInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/327/trunk/java/com/xerox/amazonws/ec2/RegionInfo.java
+END
+PlacementGroupInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/343/trunk/java/com/xerox/amazonws/ec2/PlacementGroupInfo.java
+END
+MonitoredInstanceInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/262/trunk/java/com/xerox/amazonws/ec2/MonitoredInstanceInfo.java
+END
+AddressInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/132/trunk/java/com/xerox/amazonws/ec2/AddressInfo.java
+END
+LaunchConfiguration.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/343/trunk/java/com/xerox/amazonws/ec2/LaunchConfiguration.java
+END
+ImageListAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/128/trunk/java/com/xerox/amazonws/ec2/ImageListAttribute.java
+END
+OperationType.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/299/trunk/java/com/xerox/amazonws/ec2/OperationType.java
+END
+UploadPolicy.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/226/trunk/java/com/xerox/amazonws/ec2/UploadPolicy.java
+END
+InstanceState.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/InstanceState.java
+END
+AvailabilityZone.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/296/trunk/java/com/xerox/amazonws/ec2/AvailabilityZone.java
+END
+SpotInstanceCancellationResponse.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/306/trunk/java/com/xerox/amazonws/ec2/SpotInstanceCancellationResponse.java
+END
+ImageAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/73/trunk/java/com/xerox/amazonws/ec2/ImageAttribute.java
+END
+LaunchPermissionAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/47/trunk/java/com/xerox/amazonws/ec2/LaunchPermissionAttribute.java
+END
+LoadBalancer.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/LoadBalancer.java
+END
+BundleInstanceInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/202/trunk/java/com/xerox/amazonws/ec2/BundleInstanceInfo.java
+END
+SpotInstanceType.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/306/trunk/java/com/xerox/amazonws/ec2/SpotInstanceType.java
+END
+LoadBalancing.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/326/trunk/java/com/xerox/amazonws/ec2/LoadBalancing.java
+END
+ProductInstanceInfo.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/113/trunk/java/com/xerox/amazonws/ec2/ProductInstanceInfo.java
+END
+ConsoleOutput.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/201/trunk/java/com/xerox/amazonws/ec2/ConsoleOutput.java
+END
+Jec2.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/343/trunk/java/com/xerox/amazonws/ec2/Jec2.java
+END
+ImageType.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/132/trunk/java/com/xerox/amazonws/ec2/ImageType.java
+END
+Listener.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/Listener.java
+END
+ImageDescription.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/343/trunk/java/com/xerox/amazonws/ec2/ImageDescription.java
+END
+BlockDeviceMapping.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/312/trunk/java/com/xerox/amazonws/ec2/BlockDeviceMapping.java
+END
+DescribeInstanceAttributeResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/312/trunk/java/com/xerox/amazonws/ec2/DescribeInstanceAttributeResult.java
+END
+EC2Exception.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/259/trunk/java/com/xerox/amazonws/ec2/EC2Exception.java
+END

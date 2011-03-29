@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:tns="http://sns.amazonaws.com/doc/2010-03-31/"
+		   targetNamespace="http://sns.amazonaws.com/doc/2010-03-31/"
+		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 	   xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	 	   xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+		   jaxb:extensionBindingPrefixes="xjc"
+		   jaxb:version="2.0"
+		   elementFormDefault="qualified">
+
+  <xs:annotation>
+	<xs:documentation xml:lang="en">
+	</xs:documentation>
+    <xs:appinfo>
+      <jaxb:globalBindings>
+        <xjc:simple/>
+      </jaxb:globalBindings>
+    </xs:appinfo>
+  </xs:annotation>
+  
+  <xs:element name="ResponseMetadata">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="RequestId" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="Error">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="Type">
+		  <xs:simpleType>
+			<xs:restriction base="xs:string">
+			  <xs:enumeration value="Receiver"/>
+			  <xs:enumeration value="Sender"/>
+			</xs:restriction>
+		  </xs:simpleType>
+		</xs:element>
+		<xs:element name="Code" type="xs:string"/>
+		<xs:element name="Message" type="xs:string"/>
+		<xs:element name="Detail">
+		  <xs:complexType>
+			<xs:sequence>
+			  <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+			</xs:sequence>
+			<xs:anyAttribute namespace="##other" processContents="lax"/>
+		  </xs:complexType>
+		</xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ErrorResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:Error" maxOccurs="unbounded"/>
+		<xs:element name="RequestId" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ConfirmSubscription">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string"/>
+		<xs:element name="Token" type="xs:string"/>
+		<xs:element name="AuthenticateOnUnsubscribe" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ConfirmSubscriptionResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ConfirmSubscriptionResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ConfirmSubscriptionResult">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="SubscriptionArn" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetTopicAttributes">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetTopicAttributesResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:GetTopicAttributesResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="GetTopicAttributesResult">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="Attributes" type="tns:TopicAttributesMap" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="Subscribe">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string"/>
+		<xs:element name="Protocol" type="xs:string"/>
+		<xs:element name="Endpoint" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="SubscribeResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:SubscribeResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="SubscribeResult">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="SubscriptionArn" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="SetTopicAttributes">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string"/>
+		<xs:element name="AttributeName" type="xs:string"/>
+		<xs:element name="AttributeValue" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="SetTopicAttributesResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeleteTopic">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeleteTopicResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="RemovePermission">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string"/>
+		<xs:element name="Label" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="RemovePermissionResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListSubscriptions">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="NextToken" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListSubscriptionsResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ListSubscriptionsResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListSubscriptionsResult">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="Subscriptions" type="tns:SubscriptionsList" minOccurs="0"/>
+		<xs:element name="NextToken" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="AddPermission">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string"/>
+		<xs:element name="Label" type="xs:string"/>
+		<xs:element name="AWSAccountId" type="tns:DelegatesList"/>
+		<xs:element name="ActionName" type="tns:ActionsList"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="AddPermissionResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="CreateTopic">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="Name" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="CreateTopicResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:CreateTopicResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="CreateTopicResult">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListTopics">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="NextToken" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListTopicsResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ListTopicsResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListTopicsResult">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="Topics" type="tns:TopicsList" minOccurs="0"/>
+		<xs:element name="NextToken" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="Unsubscribe">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="SubscriptionArn" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="UnsubscribeResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListSubscriptionsByTopic">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string"/>
+		<xs:element name="NextToken" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListSubscriptionsByTopicResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ListSubscriptionsByTopicResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ListSubscriptionsByTopicResult">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="Subscriptions" type="tns:SubscriptionsList" minOccurs="0"/>
+		<xs:element name="NextToken" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="Publish">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="TopicArn" type="xs:string"/>
+		<xs:element name="Message" type="xs:string"/>
+		<xs:element name="Subject" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="PublishResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:PublishResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="PublishResult">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="MessageId" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="Topic">
+
+	<xs:annotation>
+	  <xs:documentation><![CDATA[<p>A wrapper type for the topic's Amazon Resource Name (ARN). To retrieve a topic's attributes, use GetTopicAttributes.</p>]]></xs:documentation>
+	</xs:annotation>
+	
+	<xs:sequence>
+		<xs:element name="TopicArn" type="xs:string" minOccurs="0"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TopicAttributesMap">
+	<xs:sequence>
+	  <xs:element name="entry" type="tns:TopicAttributesMapEntry" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TopicAttributesMapEntry">
+	<xs:sequence>
+	  <xs:element name="key" type="xs:string" minOccurs="1"/>
+	  <xs:element name="value" type="xs:string"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Subscription">
+
+	<xs:annotation>
+	  <xs:documentation><![CDATA[<p>A wrapper type for the attributes of an SNS subscription.</p>]]></xs:documentation>
+	</xs:annotation>
+	
+	<xs:sequence>
+		<xs:element name="SubscriptionArn" type="xs:string" minOccurs="0"/>
+		<xs:element name="Owner" type="xs:string" minOccurs="0"/>
+		<xs:element name="Protocol" type="xs:string" minOccurs="0"/>
+		<xs:element name="Endpoint" type="xs:string" minOccurs="0"/>
+		<xs:element name="TopicArn" type="xs:string" minOccurs="0"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ActionsList">
+	<xs:sequence>
+	  <xs:element name="member" type="xs:string" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="DelegatesList">
+	<xs:sequence>
+	  <xs:element name="member" type="xs:string" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SubscriptionsList">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:Subscription" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TopicsList">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:Topic" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

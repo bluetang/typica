@@ -1,0 +1,58 @@
+10
+
+dir
+346
+http://typica.googlecode.com/svn/trunk/java/com/xerox/amazonws
+http://typica.googlecode.com/svn
+
+
+
+2011-01-18T05:35:33.951203Z
+346
+dkavanagh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7ed6c317-272d-0410-8ab0-49a3fbf2961c
+
+simpledb
+dir
+
+tools
+dir
+
+sns
+dir
+
+monitoring
+dir
+
+sdb
+dir
+
+common
+dir
+
+sqs2
+dir
+
+fps
+dir
+
+devpay
+dir
+
+ec2
+dir
+

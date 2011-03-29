@@ -1,0 +1,402 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 	   xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	 	   xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+		   xmlns:tns="http://elasticloadbalancing.amazonaws.com/doc/2009-05-15/"
+  		   targetNamespace="http://elasticloadbalancing.amazonaws.com/doc/2009-05-15/"
+		   jaxb:extensionBindingPrefixes="xjc"
+		   jaxb:version="2.0"
+		   elementFormDefault="qualified">
+
+  <xs:annotation>
+	<xs:documentation xml:lang="en">
+	</xs:documentation>
+    <xs:appinfo>
+      <jaxb:globalBindings>
+        <xjc:simple/>
+      </jaxb:globalBindings>
+    </xs:appinfo>
+  </xs:annotation>
+
+
+  <xs:element name="ResponseMetadata">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="RequestId" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="Error">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element name="Type">
+		  <xs:simpleType>
+			<xs:restriction base="xs:string">
+			  <xs:enumeration value="Receiver"/>
+			  <xs:enumeration value="Sender"/>
+			</xs:restriction>
+		  </xs:simpleType>
+		</xs:element>
+		<xs:element name="Code" type="xs:string"/>
+		<xs:element name="Message" type="xs:string"/>
+		<xs:element name="Detail">
+		  <xs:complexType>
+			<xs:sequence>
+			  <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
+			</xs:sequence>
+			<xs:anyAttribute namespace="##other" processContents="lax"/>
+		  </xs:complexType>
+		</xs:element>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ErrorResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:Error" maxOccurs="unbounded"/>
+		<xs:element name="RequestId" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeregisterInstancesFromLoadBalancer">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerName" type="xs:string"/>
+	  <xs:element name="Instances" type="tns:Instances"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeregisterInstancesFromLoadBalancerResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:DeregisterInstancesFromLoadBalancerResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeregisterInstancesFromLoadBalancerResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="Instances" type="tns:Instances" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ConfigureHealthCheck">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerName" type="xs:string"/>
+	  <xs:element name="HealthCheck" type="tns:HealthCheck"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ConfigureHealthCheckResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:ConfigureHealthCheckResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="ConfigureHealthCheckResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="HealthCheck" type="tns:HealthCheck" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeleteLoadBalancer">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerName" type="xs:string"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeleteLoadBalancerResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:DeleteLoadBalancerResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DeleteLoadBalancerResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="RegisterInstancesWithLoadBalancer">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerName" type="xs:string"/>
+	  <xs:element name="Instances" type="tns:Instances"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="RegisterInstancesWithLoadBalancerResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:RegisterInstancesWithLoadBalancerResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="RegisterInstancesWithLoadBalancerResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="Instances" type="tns:Instances" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="CreateLoadBalancer">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerName" type="xs:string"/>
+	  <xs:element name="Listeners" type="tns:Listeners"/>
+	  <xs:element name="AvailabilityZones" type="tns:AvailabilityZones"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="CreateLoadBalancerResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:CreateLoadBalancerResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="CreateLoadBalancerResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="DNSName" type="xs:string" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="EnableAvailabilityZonesForLoadBalancer">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerName" type="xs:string"/>
+	  <xs:element name="AvailabilityZones" type="tns:AvailabilityZones"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="EnableAvailabilityZonesForLoadBalancerResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:EnableAvailabilityZonesForLoadBalancerResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="EnableAvailabilityZonesForLoadBalancerResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="AvailabilityZones" type="tns:AvailabilityZones" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DisableAvailabilityZonesForLoadBalancer">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerName" type="xs:string"/>
+	  <xs:element name="AvailabilityZones" type="tns:AvailabilityZones"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DisableAvailabilityZonesForLoadBalancerResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:DisableAvailabilityZonesForLoadBalancerResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DisableAvailabilityZonesForLoadBalancerResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="AvailabilityZones" type="tns:AvailabilityZones" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DescribeInstanceHealth">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerName" type="xs:string"/>
+	  <xs:element name="Instances" type="tns:Instances" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DescribeInstanceHealthResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:DescribeInstanceHealthResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DescribeInstanceHealthResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="InstanceStates" type="tns:InstanceStates" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DescribeLoadBalancers">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerNames" type="tns:LoadBalancerNames" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DescribeLoadBalancersResponse">
+	<xs:complexType>
+	  <xs:sequence>
+		<xs:element ref="tns:DescribeLoadBalancersResult"/>
+		<xs:element ref="tns:ResponseMetadata" minOccurs="1"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:element name="DescribeLoadBalancersResult">
+	<xs:complexType>
+	  <xs:sequence>
+	  <xs:element name="LoadBalancerDescriptions" type="tns:LoadBalancerDescriptions" minOccurs="0"/>
+	  </xs:sequence>
+	</xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="LoadBalancerDescriptions">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:LoadBalancerDescription" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Listener">
+	<xs:sequence>
+	  <xs:element name="Protocol" type="xs:string"/>
+	  <xs:element name="LoadBalancerPort" type="xs:integer"/>
+	  <xs:element name="InstancePort" type="tns:InstancePort"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="HealthCheck">
+	<xs:sequence>
+	  <xs:element name="Target" type="xs:string"/>
+	  <xs:element name="Interval" type="tns:HealthCheckInterval"/>
+	  <xs:element name="Timeout" type="tns:HealthCheckTimeout"/>
+	  <xs:element name="UnhealthyThreshold" type="tns:UnhealthyThreshold"/>
+	  <xs:element name="HealthyThreshold" type="tns:HealthyThreshold"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="HealthCheckInterval">
+	<xs:restriction base="xs:integer">
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="UnhealthyThreshold">
+	<xs:restriction base="xs:integer">
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="LoadBalancerNames">
+	<xs:sequence>
+	  <xs:element name="member" type="xs:string" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="HealthyThreshold">
+	<xs:restriction base="xs:integer">
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="LoadBalancerDescription">
+	<xs:sequence>
+	  <xs:element name="LoadBalancerName" type="xs:string" minOccurs="0"/>
+	  <xs:element name="DNSName" type="xs:string" minOccurs="0"/>
+	  <xs:element name="Listeners" type="tns:Listeners" minOccurs="0"/>
+	  <xs:element name="AvailabilityZones" type="tns:AvailabilityZones" minOccurs="0"/>
+	  <xs:element name="Instances" type="tns:Instances" minOccurs="0"/>
+	  <xs:element name="HealthCheck" type="tns:HealthCheck" minOccurs="0"/>
+	  <xs:element name="CreatedTime" type="xs:dateTime" minOccurs="0"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AvailabilityZones">
+	<xs:sequence>
+	  <xs:element name="member" type="xs:string" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Listeners">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:Listener" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="InstancePort">
+	<xs:restriction base="xs:integer">
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="InstanceState">
+	<xs:sequence>
+	  <xs:element name="InstanceId" type="xs:string" minOccurs="0"/>
+	  <xs:element name="State" type="xs:string" minOccurs="0"/>
+	  <xs:element name="ReasonCode" type="xs:string" minOccurs="0"/>
+	  <xs:element name="Description" type="xs:string" minOccurs="0"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="InstanceStates">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:InstanceState" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Instance">
+	<xs:sequence>
+	  <xs:element name="InstanceId" type="xs:string" minOccurs="0"/>
+	</xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="HealthCheckTimeout">
+	<xs:restriction base="xs:integer">
+	</xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="Instances">
+	<xs:sequence>
+	  <xs:element name="member" type="tns:Instance" maxOccurs="unbounded"/>
+	</xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

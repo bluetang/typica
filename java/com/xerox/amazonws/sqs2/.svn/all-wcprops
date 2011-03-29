@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/339/trunk/java/com/xerox/amazonws/sqs2
+END
+Message.java
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/245/trunk/java/com/xerox/amazonws/sqs2/Message.java
+END
+QueueService.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/335/trunk/java/com/xerox/amazonws/sqs2/QueueService.java
+END
+SQSException.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/172/trunk/java/com/xerox/amazonws/sqs2/SQSException.java
+END
+SQSUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/312/trunk/java/com/xerox/amazonws/sqs2/SQSUtils.java
+END
+QueueAttribute.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/339/trunk/java/com/xerox/amazonws/sqs2/QueueAttribute.java
+END
+MessageQueue.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/339/trunk/java/com/xerox/amazonws/sqs2/MessageQueue.java
+END

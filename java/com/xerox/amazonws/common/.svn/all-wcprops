@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/346/trunk/java/com/xerox/amazonws/common
+END
+AWSQueryConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/346/trunk/java/com/xerox/amazonws/common/AWSQueryConnection.java
+END
+AWSError.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/214/trunk/java/com/xerox/amazonws/common/AWSError.java
+END
+SignerEncoder.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/254/trunk/java/com/xerox/amazonws/common/SignerEncoder.java
+END
+TypicaHttpClient.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/common/TypicaHttpClient.java
+END
+AWSException.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/180/trunk/java/com/xerox/amazonws/common/AWSException.java
+END
+JAXBuddy.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/325/trunk/java/com/xerox/amazonws/common/JAXBuddy.java
+END
+AWSConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/common/AWSConnection.java
+END
+ListResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/319/trunk/java/com/xerox/amazonws/common/ListResult.java
+END
+AWSAuthConnection.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/113/trunk/java/com/xerox/amazonws/common/AWSAuthConnection.java
+END
+Result.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/319/trunk/java/com/xerox/amazonws/common/Result.java
+END

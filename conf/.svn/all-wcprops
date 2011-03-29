@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/!svn/ver/322/trunk/conf
+END
+version.properties
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/111/trunk/conf/version.properties
+END
+logging.properties
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/244/trunk/conf/logging.properties
+END
+dtlogo150.png
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/322/trunk/conf/dtlogo150.png
+END
+aws.properties
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/201/trunk/conf/aws.properties
+END
+Log4j.xml
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/76/trunk/conf/Log4j.xml
+END

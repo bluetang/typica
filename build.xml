@@ -1,0 +1,274 @@
+<?xml version="1.0" standalone="yes"?>
+
+<project name="typica" basedir="." default="compile">
+    <property name="typica" value="${basedir}"/>
+    <property name="typica.build" value="${typica}/build" />
+    <property name="typica.conf" value="${typica}/conf" />
+    <property name="typica.lib" value="lib" />
+    <property name="typica.src" value="${typica}/java" />
+	<property name="typica.jar" value="${typica.build}/jar" />
+	<property name="typica.jar.file" value="${typica.jar}/typica.jar" />
+	<property name="typica.sdbshell.jar.file" value="${typica.jar}/sdbShell" />
+	<property name="typica.querytool.jar.file" value="${typica.jar}/QueryTool" />
+    <property name="typica.classes" value="${typica.build}/classes" />
+    <property name="typica.jar.classes" value="${typica.jar}/classes" />
+    <property name="typica.generated" value="${typica.build}/generated" />
+    <property name="typica.javadoc" value="${typica.build}/apidocs" />
+    <property name="typica.dist" value="${typica}/dist" />
+    <property name="typica.bundle.symbolic" value="com.xerox.amazonws.typica"/>
+	<property name="typica.bundle.file" value="${typica.jar}/${typica.bundle.symbolic}-${rel.version}.0.jar" />
+
+	<path id="typica.compile.classpath">
+          <fileset dir="${typica.lib}">
+          </fileset>
+          <dirset dir="${typica.classes}"/>
+	</path>
+
+	<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+		<classpath>
+			<fileset dir="${typica.lib}" includes="**/jaxb-*.jar"/>
+		</classpath>
+	</taskdef>
+
+	<taskdef name="bundle" 
+	    classname="net.luminis.build.plugin.bnd.BuildTask"
+	    classpath="${typica.lib}/net.luminis.build.plugin-0.2.0.jar" />	
+	
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${typica.build}" />
+		<mkdir dir="${typica.classes}" />
+        <mkdir dir="${typica.jar}" />
+        <mkdir dir="${typica.javadoc}" />
+        <copy toDir="${typica.classes}">
+            <fileset dir="${typica.conf}"/>
+        </copy>
+	</target>
+
+	<target name="schema" depends="init">
+        <mkdir dir="${typica.generated}/com/xerox/amazonws/typica/jaxb"/>
+		<echo>compiling the schema files in xsd to java files in ${typica.generated}/com/xerox/amazonws/typica/jaxb</echo>
+		<xjc destdir="${typica.generated}" extension="true" removeOldOutput="yes" package="com.xerox.amazonws.typica.jaxb">
+			<schema dir="xsd" includes="**/*.xsd" excludes="**/sdb.xsd, **/QueueService2.xsd, **/AmazonFPS.xsd, **/CloudWatch.xsd, **/AutoScaling.xsd, **/ElasticLoadBalancing.xsd, **/SimpleNotificationService.xsd"/>
+			<produces dir="${typica.generated}/com/xerox/amazonws/typica/jaxb" includes="**/"/>
+		</xjc>
+        <mkdir dir="${typica.generated}/com/xerox/amazonws/typica/sdb/jaxb"/>
+		<xjc destdir="${typica.generated}" extension="true" removeOldOutput="yes" package="com.xerox.amazonws.typica.sdb.jaxb">
+			<schema dir="xsd" includes="**/sdb.xsd"/>
+			<produces dir="${typica.generated}/com/xerox/amazonws/typica/sdb/jaxb" includes="**/"/>
+		</xjc>
+        <mkdir dir="${typica.generated}/com/xerox/amazonws/typica/sqs2/jaxb"/>
+		<xjc destdir="${typica.generated}" extension="true" removeOldOutput="yes" package="com.xerox.amazonws.typica.sqs2.jaxb">
+			<schema dir="xsd" includes="**/QueueService2.xsd"/>
+			<produces dir="${typica.generated}/com/xerox/amazonws/typica/sqs2/jaxb" includes="**/"/>
+		</xjc>
+        <mkdir dir="${typica.generated}/com/xerox/amazonws/typica/fps/jaxb"/>
+		<xjc destdir="${typica.generated}" extension="true" removeOldOutput="yes" package="com.xerox.amazonws.typica.fps.jaxb">
+			<schema dir="xsd" includes="**/AmazonFPS.xsd"/>
+			<produces dir="${typica.generated}/com/xerox/amazonws/typica/fps/jaxb" includes="**/"/>
+		</xjc>
+        <mkdir dir="${typica.generated}/com/xerox/amazonws/typica/monitor/jaxb"/>
+		<xjc destdir="${typica.generated}" extension="true" removeOldOutput="yes" package="com.xerox.amazonws.typica.monitor.jaxb">
+			<schema dir="xsd" includes="**/CloudWatch.xsd"/>
+			<produces dir="${typica.generated}/com/xerox/amazonws/typica/monitor/jaxb" includes="**/"/>
+		</xjc>
+		<xjc destdir="${typica.generated}" extension="true" removeOldOutput="yes" package="com.xerox.amazonws.typica.sns.jaxb">
+			<schema dir="xsd" includes="**/SimpleNotificationService.xsd"/>
+			<produces dir="${typica.generated}/com/xerox/amazonws/typica/sns/jaxb" includes="**/"/>
+		</xjc>
+        <mkdir dir="${typica.generated}/com/xerox/amazonws/typica/autoscale/jaxb"/>
+		<xjc destdir="${typica.generated}" extension="true" removeOldOutput="yes" package="com.xerox.amazonws.typica.autoscale.jaxb">
+			<schema dir="xsd" includes="**/AutoScaling.xsd"/>
+			<produces dir="${typica.generated}/com/xerox/amazonws/typica/autoscale/jaxb" includes="**/"/>
+		</xjc>
+        <mkdir dir="${typica.generated}/com/xerox/amazonws/typica/loadbalance/jaxb"/>
+		<xjc destdir="${typica.generated}" extension="true" removeOldOutput="yes" package="com.xerox.amazonws.typica.loadbalance.jaxb">
+			<schema dir="xsd" includes="**/ElasticLoadBalancing.xsd"/>
+			<produces dir="${typica.generated}/com/xerox/amazonws/typica/loadbalance/jaxb" includes="**/"/>
+		</xjc>
+	</target>
+
+	<!--compile Java source files-->
+	<target name="compile" depends="schema" description="Compile all Java source files">
+		<copy toDir="${typica.classes}">
+			<fileset dir="xsd" includes="**/*"/>
+		</copy>
+		<javac srcdir="${typica.generated}" includes="**/*.java" destdir="${typica.classes}" debug="on" target="1.5" includeantruntime="true">
+			<classpath refid="typica.compile.classpath" />
+		</javac>
+		<copy todir="${typica.classes}">
+			<fileset dir="${typica.generated}" includes="**/*.ser"/>
+			<fileset dir="${typica.generated}" includes="**/*.properties"/>
+		</copy>
+		<javac destdir="${typica.classes}" debug="on" target="1.5" includeantruntime="true">
+			<src path="${typica.src}" />
+			<classpath refid="typica.compile.classpath" />
+			<!--
+			<compilerarg value="-Xlint"/>
+			-->
+		</javac>
+    </target>
+
+	<target name="test.compile" depends="compile" description="Compile test java files">
+		<property name="test.src.path" value="test/java"/>
+		<javac destdir="${typica.classes}" debug="on" target="1.5">
+			<src path="test/java" />
+			<classpath refid="typica.compile.classpath" />
+		</javac>
+    </target>
+
+	<target name="jar" depends="compile">
+        <copy file="${typica.conf}/version.properties" toDir="${typica.classes}" overwrite="true">
+			<filterset>
+				<filter token="VERSION" value="${rel.version}"/>
+			</filterset>
+        </copy>
+        <jar destfile="${typica.jar.file}" basedir="${typica.classes}" excludes="**/*.xml"/>
+	</target>
+
+	<target name="bundle" depends="jar">
+		<bundle 
+			classpath="${typica.jar.file}" 
+			target="${typica.bundle.file}"
+			includeResource="@${typica.jar.file}"
+			includeIncludeResourceHeader="no"
+			bundleSymbolicName="${typica.bundle.symbolic}"
+			bundleVersion="${rel.version}.0"
+			bundleVendor="Typica project (http://code.google.com/p/typica/)"
+		    bundleDocUrl="http://typica.s3.amazonaws.com/index.html"
+		    bundleLicense="http://www.apache.org/licenses/LICENSE-2.0"
+			importPackage="javax.servlet.*;resolution:=optional,sun.*;resolution:=optional,*"
+			exportPackage="com.xerox.amazonws.*;-noimport:=true;version=${rel.version}.0"/>
+	</target>
+	
+	<target name="javadoc" depends="schema">
+		<javadoc packagenames="com.xerox.*"
+				defaultexcludes="yes"
+				sourcepath="${typica.src}"
+				destdir="${typica.javadoc}"
+				author="true"
+				version="true"
+				use="true"
+				windowtitle="Typica - Amazon EC2/SQS/SimpleDB Client">
+			<classpath refid="typica.compile.classpath"/>
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api"/>
+		</javadoc>
+	</target>
+
+	<target name="clean" description="Deletes all the generated artifacts.">
+		<delete dir="${typica.build}" />
+	</target>
+
+	<target name="dist" depends="clean, javadoc">
+		<input message="Enter the version # : " addproperty="rel.version"/>
+		<antcall target="bundle">
+			<param name="rel.version" value="${rel.version}"/>
+		</antcall>
+		<mkdir dir="${typica.dist}"/>
+		<zip destfile="${typica.dist}/typica-${rel.version}.zip">
+			<fileset file="${typica.jar.file}"/>
+			<fileset file="${typica.bundle.file}"/>
+			<fileset file="README"/>
+			<fileset file="LICENSE.txt"/>
+            <fileset dir="${typica.conf}" includes="**/*"/>
+			<fileset dir="${typica.build}">
+				<include name="apidocs/**/*"/>
+			</fileset>
+		</zip>
+	</target>
+
+	<target name="source-jar" depends="compile">
+		<zip destfile="${typica.jar}/typica-sources.jar">
+			<fileset dir="${typica.src}" />
+			<fileset dir="${typica.generated}" />
+		</zip>
+	</target>
+
+	<target name="upload">
+		<taskdef name="S3Upload" classname="dak.ant.taskdefs.S3Upload">
+			<classpath refid="typica.compile.classpath" />
+		</taskdef>
+
+		<property file="${basedir}/aws.properties"/>
+		<S3Upload verbose="true"
+				accessId="${aws.accessId}"
+				secretKey="${aws.secretKey}"
+				bucket="typica"
+				publicRead="true">
+			<fileset dir="build/apidocs/" includes="**/*"/>
+		</S3Upload>
+	</target>
+
+	<target name="sdbshell" depends="compile, test.compile">
+		<input message="Enter the version # : " addproperty="rel.version"/>
+		<antcall target="test.compile">
+			<param name="test.src.path" value="test/java/sdbShell.java"/>
+		</antcall>
+		<mkdir dir="${typica.jar.classes}"/>
+		<unzip dest="${typica.jar.classes}">
+			<fileset dir="${typica.lib}">
+				<include name="activation.jar"/>
+				<include name="jaxb-api.jar"/>
+				<include name="jaxb-impl.jar"/>
+				<include name="jsr173_1.0_api.jar"/>
+				<include name="commons-logging-1.1.1.jar"/>
+				<include name="commons-codec-1.4.jar"/>
+				<include name="httpclient-4.0.jar"/>
+				<include name="httpcore-4.0.1.jar"/>
+			</fileset>
+		</unzip>
+		<!--
+			<fileset dir="${typica.jar.classes}" includes="**/*" />
+		-->
+		<jar destfile="${typica.sdbshell.jar.file}${rel.version}.jar">
+			<fileset dir="${typica.classes}" includes="**/*" excludes="**/ec2/*, **/sqs/*" />
+			<fileset dir="${typica.jar.classes}" includes="**/*" />
+			<manifest>
+				<attribute name="Main-Class" value="sdbShell"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="querytool" depends="compile, test.compile">
+		<input message="Enter the version # : " addproperty="rel.version"/>
+		<antcall target="test.compile">
+			<param name="test.src.path" value="test/java/sdbShell.java"/>
+		</antcall>
+		<mkdir dir="${typica.jar.classes}"/>
+		<unzip dest="${typica.jar.classes}">
+			<fileset dir="${typica.lib}">
+				<include name="activation.jar"/>
+				<include name="jaxb-api.jar"/>
+				<include name="jaxb-impl.jar"/>
+				<include name="jsr173_1.0_api.jar"/>
+				<include name="commons-logging-1.1.1.jar"/>
+				<include name="commons-codec-1.4.jar"/>
+				<include name="httpclient-4.0.1.jar"/>
+				<include name="httpcore-4.0.1.jar"/>
+			</fileset>
+		</unzip>
+		<jar destfile="${typica.querytool.jar.file}${rel.version}.jar">
+			<fileset dir="${typica.classes}" includes="**/*" excludes="**/ec2/*, **/sqs/*" />
+			<fileset dir="${typica.jar.classes}" includes="**/*" />
+			<manifest>
+				<attribute name="Main-Class" value="QueryTool"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="test.main" depends="test.compile">
+		<java fork="true" classname="${class}">
+			<classpath>
+				<path refid="typica.compile.classpath"/>
+				<pathelement location="${typica.classes}"/>
+			</classpath>
+			<arg line="${args}"/>
+			<jvmarg value="-Djava.util.logging.config.file=conf/logging.properties"/>
+			<!--
+			<jvmarg value="-Djavax.net.ssl.trustStore=./jssecacerts"/>
+			<jvmarg value="-Djavax.net.debug=all"/>
+			-->
+		</java>
+	</target>
+</project>
+

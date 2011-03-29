@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/346/trunk/java/com/xerox/amazonws/simpledb
+END
+SimpleDB.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/326/trunk/java/com/xerox/amazonws/simpledb/SimpleDB.java
+END
+ItemCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/ItemCache.java
+END
+ItemVO.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/ItemVO.java
+END
+SDBListResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/SDBListResult.java
+END
+ItemListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/ItemListener.java
+END
+Condition.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/Condition.java
+END
+Domain.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/346/trunk/java/com/xerox/amazonws/simpledb/Domain.java
+END
+SDBResult.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/SDBResult.java
+END
+SDBException.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/SDBException.java
+END
+DomainMetadata.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/323/trunk/java/com/xerox/amazonws/simpledb/DomainMetadata.java
+END
+DataUtils.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/DataUtils.java
+END
+SimpleItemCache.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/SimpleItemCache.java
+END
+Item.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/322/trunk/java/com/xerox/amazonws/simpledb/Item.java
+END

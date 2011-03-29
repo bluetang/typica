@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 27
+/svn/!svn/ver/318/trunk/lib
+END
+commons-codec-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/318/trunk/lib/commons-codec-1.4.jar
+END
+servlet-api-2.5-6.1.12rc1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/181/trunk/lib/servlet-api-2.5-6.1.12rc1.jar
+END
+httpcore-4.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/318/trunk/lib/httpcore-4.0.1.jar
+END
+jaxb-xjc.jar
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/3/trunk/lib/jaxb-xjc.jar
+END
+jetty-6.1.12rc1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/181/trunk/lib/jetty-6.1.12rc1.jar
+END
+commons-logging-1.1.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/318/trunk/lib/commons-logging-1.1.1.jar
+END
+jaxb-api.jar
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/3/trunk/lib/jaxb-api.jar
+END
+httpclient-4.0.1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/318/trunk/lib/httpclient-4.0.1.jar
+END
+jsr173_1.0_api.jar
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/3/trunk/lib/jsr173_1.0_api.jar
+END
+activation.jar
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/3/trunk/lib/activation.jar
+END
+jetty-util-6.1.12rc1.jar
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/181/trunk/lib/jetty-util-6.1.12rc1.jar
+END
+jaxb-impl.jar
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/3/trunk/lib/jaxb-impl.jar
+END

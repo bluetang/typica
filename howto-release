@@ -1,0 +1,26 @@
+Release Process Documentation
+
+check that no AWS ids/keys are in the test code
+
+ensure everything is checked in, run "svn stat"
+
+clean workspace;
+  ant clean
+
+update README with feature change and change log (use "svn log --revision N:M" in trunk to get change history)
+	don't include revsion history for commits of release files and tagging.. too much clutter
+
+build release
+  ant dist  - entering version number (i.e. 1.5)
+
+add dist file to svn and commit dist and README changes
+
+tag release
+  svn copy https://typica.googlecode.com/svn/trunk/ https://typica.googlecode.com/svn/tags/v1.5 -m "tagging the 1.5 release"
+
+upload release to google code downloads. feature it, remove feature tag from older release 
+
+publish javadoc
+  ant upload
+
+post anouncement in SQS forum, EC2 forum, etc. as appropriate
